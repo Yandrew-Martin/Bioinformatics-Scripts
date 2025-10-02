@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <h1>Gene Predicition Comparison</h1>
+
+      <table style="width:100%">
+	<tr>
+	  <th>Total Predicted</th>
+	  <th>Total Reference</th>
+    	  <th>Matching Genes</th>
+   	  <th>5' Matching Genes</th>
+	  <th>3' Matching Genes</th> 
+	  <th>Non-Matching Genes</th> 
+	</tr>
+	<tr>
+          <td>{{ totalPredicted }}</td>
+          <td>{{ geneCount }}</td>
+          <td>{{ exactCount }}</td>
+          <td>{{ startCount }}</td>
+	  <td>{{ endCount }}</td>
+	  <td>{{ noCount }}</td>
+	</tr>
+      </table>
+
+      <table style="width:100%">
+	<tr>
+	  <th>Reference Protein ID</th>
+    	  <th>Reference Coordinates</th>
+   	  <th>Predicted Coordinates</th>
+	  <th>Matching Agree/Disagree</th>
+	</tr>
+        {% for entry in entries %}
+	 <tr>
+	  <td>{{ entry.id }}</td>
+          <td>{{ entry.gbStart }}:{{ entry.gbEnd }}</td>
+          <td>{{ entry.pStart }}:{{ entry.pEnd }}</td>
+	  <td>{{ entry.match }}</td>
+
+	 </tr>
+        {% endfor %}
+      </table>
+    </body>
+</html>
